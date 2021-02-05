@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RepeatBackground : MonoBehaviour
 {
+    // script is unfinished, decided not to add to the project since we don't have enough time
     private Vector3 startpos;
     private float repeatWidth;
     // Start is called before the first frame update

@@ -16,6 +16,7 @@ public float xRange = 9;
     // Update is called once per frame
     void Update()
     {
+        //When the WASD keys are used the player moves in the desired direction
         Vector3 pos = transform.position;
 
         if (Input.GetKey("w"))
@@ -36,6 +37,7 @@ public float xRange = 9;
         }
         transform.position = pos;
 
+        //*not finished* makes it so the player can't leave the screen
         if (transform.position.x < -xRange) 
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);    
