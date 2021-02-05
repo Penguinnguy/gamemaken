@@ -1,30 +1,30 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour
 {
-     public Text timerText;
-     private float secondsCount;
-     private int minuteCount;
-     private int hourCount;
-     // Update the timer
-     void Update(){
-         UpdateTimerUI();
+    // adds time
+    float currentTime = 0f;
+    float startingTime= 60f;
+    [SerializeField] Text countdownText;
+void Start()
+{
+    // pretty self explanatory, makes it so that currenttime is equal to the startingtime
+    currentTime = startingTime;
+}
+void Update()
+{
+    // starts the countdown
+    currentTime -= 1 * Time.deltaTime;
+    countdownText.text = currentTime.ToString();
+    
+    // if the timer hits zero game will close
+    if (currentTime <= 0)
+    {
+        currentTime = 0;
+        Application.Quit();
      }
-
-     public void UpdateTimerUI(){
-         // Adds a second, minute and hour counter
-         secondsCount += Time.deltaTime;
-         timerText.text = hourCount +"h:"+ minuteCount +"m:"+(int)secondsCount + "s";
-         if(secondsCount >= 60){
-             minuteCount++;
-             secondsCount = 0;
-         }else if(minuteCount >= 60){
-             hourCount++;
-             minuteCount = 0;
-         }    
-     }
+    }
 }
